@@ -212,6 +212,6 @@ router.get('/', async (req, res, next) => {
 module.exports = router;
 ```
 ### 브라우저 테스트
-* http://localhost:33443/api/boards
+* http://localhost:30443/api/boards
 ### postman 테스트
 
