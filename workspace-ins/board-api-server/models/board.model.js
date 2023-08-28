@@ -38,6 +38,24 @@ const boardModel = {
     }catch(err){
       throw new Error('DB Error', { cause: err });
     }
+  },
+  async update(id, article){
+    try{
+      const sql = `update board set ? where id = ?`;
+      const [ result ] = await pool.query(sql, [article, id]);
+      return result.affectedRows;
+    }catch(err){
+      throw new Error('DB Error', { cause: err });
+    }
+  },
+  async delete(id){
+    try{
+      const sql = `update board set ? where id = ?`;
+      const [ result ] = await pool.query(sql, [article, id]);
+      return result.affectedRows;
+    }catch(err){
+      throw new Error('DB Error', { cause: err });
+    }
   }
 };
 

@@ -35,4 +35,28 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+// 게시물 수정
+router.put('/:id', async (req, res, next) => {
+  try{
+    const id = Number(req.params.id);
+    const article = req.body;
+    const count = await board.update(id, article);
+    res.json({ count });
+  }catch(err){
+    next(err);
+  }
+});
+
+// 게시물 삭제
+router.delete('/:id', async (req, res, next) => {
+  try{
+    const id = Number(req.params.id);
+    const article = req.body;
+    const count = await board.update(id, article);
+    res.json({ count });
+  }catch(err){
+    next(err);
+  }
+});
+
 module.exports = router;

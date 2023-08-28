@@ -23,6 +23,7 @@ app.use((req, res, next) => {
 // 500 에러 처리
 app.use((err, req, res, next) => {
   console.error(err.stack);
+  console.error(err.cause);
   res.json({error: {message: '요청을 처리할 수 없습니다. 잠시 후 다시 요청해 주세요.'}});
 });
 
