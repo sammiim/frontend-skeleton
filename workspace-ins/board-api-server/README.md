@@ -214,4 +214,13 @@ module.exports = router;
 ### 브라우저 테스트
 * http://localhost:30443/api/boards
 ### postman 테스트
-
+#### Workspace 생성
+* Workspaces > Create Workspace > Blank workspace
+  - Name: board DB
+  - Create
+* Collections > Create new collection
+  - Name: board
+* board 컬렉션에서 마우스 우클릭 > add request
+  - method: GET
+  - url: http://localhost:30443/api/boards
+  - Send

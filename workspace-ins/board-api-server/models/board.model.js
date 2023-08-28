@@ -29,6 +29,15 @@ const boardModel = {
     }catch(err){
       throw new Error('DB Error', { cause: err });
     }
+  },
+  async create(article){
+    try{
+      const sql = `insert into board set ?`;
+      const [ result ] = await pool.query(sql, [article]);
+      return result.insertId;
+    }catch(err){
+      throw new Error('DB Error', { cause: err });
+    }
   }
 };
 
