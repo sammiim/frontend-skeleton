@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "124be0b6-4c01-4aa9-85a1-67f97aaf5fe5",
+		"name": "board",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2112922",
+		"_collection_link": "https://dark-shadow-3643.postman.co/workspace/board-DB~79535783-d69c-4af1-8eaa-8292c9b66e5c/collection/2112922-124be0b6-4c01-4aa9-85a1-67f97aaf5fe5?action=share&source=collection_link&creator=2112922"
+	},
+	"item": [
+		{
+			"name": "목록 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30443/api/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30443",
+					"path": [
+						"api",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "상세 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30443/api/boards/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30443",
+					"path": [
+						"api",
+						"boards",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"postman 등록 1\",\r\n    \"content\": \"postman으로 등록함.\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:30443/api/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30443",
+					"path": [
+						"api",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
