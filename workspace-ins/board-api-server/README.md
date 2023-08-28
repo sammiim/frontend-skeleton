@@ -154,9 +154,64 @@ module.exports = pool;
 ```
 * models/board.model.js 작성
 ```
+const pool = require('./pool');
 
+const boardModel = {
+  // 게시물 목록 조회
+  // find: async function(){
+  async find(){
+    try{
+      const sql = `
+        select board.* from board
+      `;
+      const [ result ] = await pool.query(sql);
+      return result;
+    }catch(err){
+      throw new Error('DB Error', { cause: err });
+    }
+  }
+};
+
+module.exports = boardModel;
 ```
 ### router 작성
+* app.js 수정
+```
+app.use('/api', indexRouter);
+```
+* routes/index.js 파일 수정
+```
+var express = require('express');
+var router = express.Router({mergeParams: true});
 
+const boardRouter = require('./board');
+const userRouter = require('./users');
+
+router.use('/boards', boardRouter);
+router.use('/users', userRouter);
+
+module.exports = router;
+```
+* routes/board.js 파일 생성
+```
+var express = require('express');
+var router = express.Router();
+
+const board = require('../models/board.model');
+
+// 게시물 목록 조회
+router.get('/', async (req, res, next) => {
+  try{
+    const list = await board.find();
+    res.json(list);
+  }catch(err){
+    next(err);
+  }
+});
+
+module.exports = router;
+```
+### 브라우저 테스트
+* http://localhost:33443/api/boards
 ### postman 테스트
 

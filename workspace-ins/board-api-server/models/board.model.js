@@ -8,6 +8,8 @@ const boardModel = {
       const sql = `
         select board.* from board
       `;
+      const [ result ] = await pool.query(sql);
+      return result;
     }catch(err){
       throw new Error('DB Error', { cause: err });
     }
