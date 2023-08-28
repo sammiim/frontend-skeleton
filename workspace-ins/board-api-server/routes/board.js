@@ -13,4 +13,14 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// 게시물 상세 조회
+router.get('/', async (req, res, next) => {
+  try{
+    const list = await board.find();
+    res.json(list);
+  }catch(err){
+    next(err);
+  }
+});
+
 module.exports = router;
