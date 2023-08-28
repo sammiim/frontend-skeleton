@@ -47,3 +47,46 @@ npm start
 ### 테스트
 * 웹 브라우저로 접속
   - http://localhost:30443
+
+## DB 설계
+### MySQL Workbench 실행
+* File > New Model
+* mydb 마우스 우클릭 > Edit Schema
+  - Name: boarddb
+
+### user 테이블
+* Model Overwiew > Add Diagram 더블 클릭해서 새로운 다이어그램 추가
+#### 생성
+* boarddb > Tables > Place a New Table > 화면 클릭
+#### 수정
+* 생성된 table1 더블 클릭
+* Table Name: user
+* Column Name
+  - id: INT, PK, NN, AI 체크, Comments: 사용자 아이디
+  - name: VARCHAR(45), NN, 사용자 이름
+  - email: VARCHAR(45), NN, 사용자 이메일
+  - cellphone: VARCHAR(11), 사용자 휴대폰 번호
+  - password: VARCHAR(45), NN, 사용자 비밀번호
+  - createdAt: DATETIME, NN, default: CURRENT_TIMESTAMP, 생성일
+  - updatedAt: DATETIME, defualt: CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 수정일
+
+### board 테이블
+#### 생성
+#### 수정
+### board_comment 테이블
+#### 생성
+#### 수정
+
+### ERD 저장
+* workspace/docs/boarddb 지정
+
+### ERD로 테이블 생성
+* Database > Forward Engineer
+* Next 클릭 후 다음 항목 체크
+  - Generate separate CREATE INDEX statements
+  - DROP objects before each CREATE object
+  - Generate DROP SCHEMA
+* 계속 Next 후 Close
+
+
+ `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
