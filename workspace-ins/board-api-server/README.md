@@ -72,10 +72,51 @@ npm start
 
 ### board 테이블
 #### 생성
+* boarddb > Tables > Place a New Table > 화면 클릭
 #### 수정
+* 생성된 table1 더블 클릭
+* Table Name: board
+* Column Name
+  - id: INT, PK, NN, AI 체크, Comments: 게시물 아이디
+  - userId: INT, NN, 작성자 아이디
+  - title: VARCHAR(1024), NN, 제목
+  - content: VARCHAR(1024), NN, 내용
+  - filePath: VARCHAR(1024), 첨부파일 경로
+  - createdAt: DATETIME, NN, default: CURRENT_TIMESTAMP, 생성일
+  - updatedAt: DATETIME, defualt: CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 수정일
+#### userId에 FK 추가
+* Foreign Keys 탭 선택
+* Foreign Key Name: fk_board_userId
+* Referenced Table: 'boarddb'.'user'
+* Column: userId
+* Referenced Column: id
+
 ### board_comment 테이블
 #### 생성
+* boarddb > Tables > Place a New Table > 화면 클릭
 #### 수정
+* 생성된 table1 더블 클릭
+* Table Name: board_comment
+* Column Name
+  - id: INT, PK, NN, AI 체크, Comments: 댓글 아이디
+  - boardId: INT, NN, 게시물 아이디
+  - userId: INT, NN, 작성자 아이디
+  - content: VARCHAR(1024), NN, 댓글 내용
+  - createdAt: DATETIME, NN, default: CURRENT_TIMESTAMP, 생성일
+
+#### boardId에 FK 추가
+* Foreign Keys 탭 선택
+* Foreign Key Name: fk_board_comment_boardId
+* Referenced Table: 'boarddb'.'board'
+* Column: boardId
+* Referenced Column: id
+
+#### userId에 FK 추가
+* Foreign Keys 탭 선택
+* Foreign Key Name: fk_board_comment_userId
+* Referenced Table: 'boarddb'.'user'
+* Column: userId
+* Referenced Column: id
 
 ### ERD 저장
 * workspace/docs/boarddb 지정
@@ -88,5 +129,3 @@ npm start
   - Generate DROP SCHEMA
 * 계속 Next 후 Close
 
-
- `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
