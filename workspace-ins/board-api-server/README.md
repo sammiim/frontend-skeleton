@@ -129,3 +129,34 @@ npm start
   - Generate DROP SCHEMA
 * 계속 Next 후 Close
 
+## 개발
+### 설정 파일 작성
+* config/index.js 파일 생성
+```
+module.exports = {
+  mysql: {
+    host: 'localhost',
+    port: '33306',
+    database: 'boarddb',
+    user: 'node',
+    password: 'node'
+  }
+};
+```
+
+### model 작성
+* models/pool.js 파일 생성
+```
+const mysql2 = require('mysql2/promise');
+const { mysql } = require('../config');
+const pool = mysql2.createPool(mysql);
+module.exports = pool;
+```
+* models/board.model.js 작성
+```
+
+```
+### router 작성
+
+### postman 테스트
+
